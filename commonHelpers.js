@@ -2,7 +2,7 @@ import{i as c,S as l}from"./assets/vendor-0fc460d7.js";(function(){const o=docum
       <div class="photo-card">
         <a href="${t}" target="_blank">
           <img src="${o}" alt="${s}" loading="lazy" class="photo-card__image" />
-        </a>
+         </a>
         <div class="photo-card__info">
           <p class="photo-card__info-item"><b>Likes:</b> ${e}</p>
           <p class="photo-card__info-item"><b>Views:</b> ${r}</p>
