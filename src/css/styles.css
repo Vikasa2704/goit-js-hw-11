@@ -116,7 +116,7 @@ body {
   background-color: #fafafa;
   line-height: 1.5;
   margin: 0;
-  padding-top: 150px;
+  /* padding-top: 150px; */
 }
 
 ul {
@@ -144,19 +144,11 @@ p {
   padding: 0;
 }
 
-.header {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  min-height: 111px;
-}
-
 .search-box {
   display: flex;
   background: #fff;
-  background-repeat: no-repeat;
-  padding: 30px;
+
+  padding: 32px;
   align-items: center;
   justify-content: center;
 }
@@ -196,11 +188,6 @@ button:hover {
   outline: none;
 }
 
-.container {
-  margin: 0 auto;
-  padding-bottom: 50px;
-}
-
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -213,8 +200,8 @@ button:hover {
 .photo-card {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 303px;
+  width: 360px;
+  height: 200px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -226,18 +213,22 @@ button:hover {
 .photo-card__image {
   display: block;
   object-fit: cover;
-  width: 300px;
-  height: 215px;
+  width: 360px;
+  height: 152px;
 }
 
 .photo-card__info {
   display: flex;
+  justify-content: space-evenly;
   gap: 4px;
-  padding: 20px 10px;
-
+  width: 360px;
+  height: 48px;
   color: #2e2f42;
 }
+
 .photo-card__info-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 12px;
@@ -246,44 +237,46 @@ button:hover {
   gap: 4px;
 }
 .loader {
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  display: inline-block;
   position: relative;
-
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  width: 40px;
+  height: 60px;
+  animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.loader::after,
-.loader::before {
+
+.loader:before,
+.loader:after {
   content: '';
-  box-sizing: border-box;
+  background: #ff3d00;
+  width: 40px;
+  height: 60px;
+  border-radius: 50px 50px 0 0;
   position: absolute;
   left: 0;
-  top: 0;
-  background: #ff3d00;
-  width: 6px;
-  height: 6px;
-  transform: translate(150%, 150%);
-  border-radius: 50%;
-}
-.loader::before {
-  left: auto;
-  top: auto;
-  right: 0;
   bottom: 0;
-  transform: translate(-150%, -150%);
+  transform: rotate(45deg);
+  transform-origin: 50% 68%;
+  box-shadow: 5px 4px 5px #0004 inset;
 }
-
-@keyframes rotation {
+.loader:after {
+  transform: rotate(-45deg);
+}
+@keyframes heartBeat {
   0% {
-    transform: rotate(0deg);
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(0.9);
   }
 }

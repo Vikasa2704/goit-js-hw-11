@@ -20,7 +20,7 @@ function createMarkup(images) {
           <p class="photo-card__info-item"><b>Comments:</b> ${comments}</p>
           <p class="photo-card__info-item"><b>Downloads:</b> ${downloads}</p>
         </div>
-        </a>
+        
       </div>
     `
     )

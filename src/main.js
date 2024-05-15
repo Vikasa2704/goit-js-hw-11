@@ -18,10 +18,12 @@ function handleFormSubmit(event) {
   const searchQuery = input.value.trim();
 
   if (searchQuery === '') {
-    iziToast.error({
-      title: 'Error',
-      message: 'Please enter a search query',
-    });
+    iziToast
+      .error({
+        title: 'Error',
+        message: 'Please enter a search query',
+      })
+      .finally(() => form.reset());
     return;
   }
 
