@@ -13,7 +13,7 @@ function createMarkup(images) {
       <div class="photo-card">
         <a href="${largeImageURL}" target="_blank">
           <img src="${webformatURL}" alt="${tags}" loading="lazy" class="photo-card__image" />
-        </a>
+         </a>
         <div class="photo-card__info">
           <p class="photo-card__info-item"><b>Likes:</b> ${likes}</p>
           <p class="photo-card__info-item"><b>Views:</b> ${views}</p>
