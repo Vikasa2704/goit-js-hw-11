@@ -10,7 +10,8 @@
   <body>
      <header class="header">
     <main>
-     <form class="search-form search-box" id="search-form"> 
+     <div>
+       <form class="search-form search-box" id="search-form"> 
         <input
           type="text"
           id="search-input"
@@ -18,13 +19,14 @@
         />
         <button type="submit">Search</button>
       
-      </form>
-         <!-- Індикатор завантаження -->
-        <div class="loader"></div>
+        <!-- Індикатор завантаження -->
+        <div><span class="loader"></span></div>
+        </form>
           
-      <div id="gallery" class="gallery"> 
+        <div id="gallery" class="gallery"> 
         <!--  Картки зображень будуть відображатися тут -->
         </div> 
+        </div>
     </main>
         <script src="main.js" type="module"></script>
   </body>

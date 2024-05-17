@@ -154,12 +154,12 @@ p {
 }
 
 input {
-  width: 300px;
-  padding: 12px 20px 12px 20px;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border: 2px solid #ccc;
-  font-size: 20px;
+  width: 272px;
+  height: 40px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 16px;
 }
 
 input:focus {
@@ -170,21 +170,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 91px;
+  height: 40px;
   padding: 8px 16px;
-  gap: 10px;
   margin-left: 8px;
   outline: none;
   cursor: pointer;
   background-color: #4e75ff;
   color: #ffffff;
-  fill: currentColor;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
 }
 
 button:hover {
   background-color: #1165e8;
-  color: #feff00;
+  color: #ffffff;
   outline: none;
 }
 
@@ -236,47 +235,41 @@ button:hover {
   font-weight: 600;
   gap: 4px;
 }
+
 .loader {
+  width: 64px;
+  height: 48px;
   position: relative;
-  width: 40px;
-  height: 60px;
-  animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation: split 1s ease-in infinite alternate;
+}
+.loader::before,
+.loader::after {
+  content: '';
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  transform: translateX(-10px);
+  background: #ff3d00;
+  opacity: 0.75;
+  backdrop-filter: blur(20px);
 }
 
-.loader:before,
-.loader:after {
-  content: '';
-  background: #ff3d00;
-  width: 40px;
-  height: 60px;
-  border-radius: 50px 50px 0 0;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: rotate(45deg);
-  transform-origin: 50% 68%;
-  box-shadow: 5px 4px 5px #0004 inset;
+.loader::after {
+  left: auto;
+  right: 0;
+  background: #fff;
+  transform: translateX(10px);
 }
-.loader:after {
-  transform: rotate(-45deg);
-}
-@keyframes heartBeat {
-  0% {
-    transform: scale(0.95);
-  }
-  5% {
-    transform: scale(1.1);
-  }
-  39% {
-    transform: scale(0.85);
-  }
-  45% {
-    transform: scale(1);
-  }
-  60% {
-    transform: scale(0.95);
+
+@keyframes split {
+  0%,
+  25% {
+    width: 64px;
   }
   100% {
-    transform: scale(0.9);
+    width: 148px;
   }
 }
