@@ -1,8 +1,11 @@
+// js/pixabay-api.js
+
 const API_KEY = '43843961-af0153872675268c29353c689';
 const BASE_URL = 'https://pixabay.com/api/';
 
-function fetchImages(searchQuery) {
+export function fetchImages(searchQuery) {
   const url = `${BASE_URL}?key=${API_KEY}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true`;
+
   return fetch(url)
     .then(response => {
       if (response.ok) {
@@ -19,5 +22,3 @@ function fetchImages(searchQuery) {
       return data.hits;
     });
 }
-
-export { fetchImages };

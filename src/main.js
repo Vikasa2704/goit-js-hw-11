@@ -17,7 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.querySelector('#search-form');
   const input = document.querySelector('#search-input');
   const gallery = document.querySelector('.gallery');
-  const loader = document.querySelector('.loader');
+  const loaderContainer = document.querySelector('.loader-container');
+
+  // Приховуємо лоадер через секунду після завантаження сторінки
+  setTimeout(() => {
+    hideLoader(loaderContainer);
+  }, 2000);
 
   form.addEventListener('submit', onSearch);
 
@@ -25,17 +30,18 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     const searchQuery = input.value.trim();
 
+    clearGallery();
+    showLoader(loaderContainer);
+
     if (searchQuery === '') {
       iziToast.error({
         title: 'Error',
         message: 'Please enter a search query!',
       });
       input.value = ''; // Очищення поля вводу форми при некоректному вводу
+      hideLoader(loaderContainer); // Приховуємо індикатор завантаження при некоректному вводу
       return;
     }
-
-    clearGallery();
-    showLoader(loader);
 
     fetchImages(searchQuery)
       .then(images => {
@@ -59,6 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         input.value = ''; // Очищення поля вводу форми при помилці
       })
-      .finally(() => hideLoader(loader));
+      .finally(() => hideLoader(loaderContainer));
   }
 });
