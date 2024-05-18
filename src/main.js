@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Приховуємо лоадер через секунду після завантаження сторінки
   setTimeout(() => {
     hideLoader(loaderContainer);
-  }, 2000);
+  }, 1000);
 
   form.addEventListener('submit', onSearch);
 
